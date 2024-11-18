@@ -33,7 +33,10 @@ input_df = pd.DataFrame(data)
 
 input_df = pd.get_dummies(input_df, drop_first=True)
 input_df = input_df.reindex(columns=feature_columns, fill_value=0)
-
+st.write("""
+    Average Residuals is on average 700k off so although innacurate teh weightage of factors 
+    still plays a significant role in understanding each model given.
+""")
 
 def plot_feature_importance(model, feature_columns, model_type):
     if model_type == "Linear Regression":
