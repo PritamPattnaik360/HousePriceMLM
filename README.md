@@ -9,9 +9,9 @@ This project is a Streamlit-based web application for predicting house prices us
  - User-Friendly Interface: Built with Streamlit for simplicity and accessibility.
 
 📦 Dependencies
-streamlit
-pandas
-joblib
-matplotlib
-scikit-learn
+- streamlit
+- pandas
+- joblib
+- matplotlib
+- scikit-learn
 Ensure all dependencies are listed in the requirements.txt file for proper installation.
