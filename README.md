@@ -13,6 +13,8 @@ This project is a Streamlit-based web application using machine learning models 
  - Model Selection: Compare performance across different models.
  - User-Friendly Interface: Built with Streamlit for simplicity and accessibility.
 
+
+I preprocessed the data (handling missing values, encoding categorical features), split it into training and testing sets, and trained models like Linear Regression, Random Forest, Decision Tree, and Neural Network, saving them with joblib for deployment.
 <img width="400" alt="3" src="https://github.com/user-attachments/assets/6b55c86b-6199-44d7-bd6f-44f82bb2f00b">
 
 This displays the training of the model for linear regression found in the Jupiter notebook
