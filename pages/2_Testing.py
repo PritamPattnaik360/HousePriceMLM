@@ -9,7 +9,9 @@ feature_columns = joblib.load('feature_columns.pkl')
 st.subheader("Select a Model")
 model_options = {
     "Linear Regression": "house_price_model_lr.pkl",
-    "Random Forest": "house_price_model_rf.pkl"
+    "Random Forest": "house_price_model_rf.pkl",
+    "Neural Network": "house_price_model_mlp.pkl",
+    "Decision Tree": "house_price_model_dt.pkl"
 }
 selected_model_name = st.selectbox("Choose a model to test", options=list(model_options.keys()))
 
@@ -42,11 +44,17 @@ def plot_feature_importance(model, feature_columns, model_type):
     if model_type == "Linear Regression":
         importance = model.coef_[0] if hasattr(model, "coef_") else model.coef_
         feature_importance = pd.Series(importance, index=feature_columns).sort_values(key=abs, ascending=False)
+        st.write("The Graph displayed shows the weighting of imprtance each specific trait has on the overall number")
     elif model_type == "Random Forest":
         importance = model.feature_importances_
         feature_importance = pd.Series(importance, index=feature_columns).sort_values(ascending=False)
+        st.write("The Graph displayed shows the weighting of imprtance each specific trait has on the overall number")
+    elif model_type == "Decision Tree":
+        importance = model.feature_importances_
+        feature_importance = pd.Series(importance, index=feature_columns).sort_values(ascending=False)
+        st.write("The Graph displayed shows the weighting of imprtance each specific trait has on the overall number")
     else:
-        st.write("Feature importance not supported for this model type.")
+        st.write("Feature importance graph not supported for this model type.")
         return None
 
     plt.figure(figsize=(8, 6))
@@ -60,7 +68,5 @@ if st.button("Predict"):
     prediction = model.predict(input_df)
     st.subheader(f"Estimated House Price: ${prediction[0]:,.2f}")
     plot_feature_importance(model, feature_columns, selected_model_name)
-    st.write(""" 
-        The Graph displayed shows the weighting of imprtance each specific trait has on the overall number
-    """)
+    
 
