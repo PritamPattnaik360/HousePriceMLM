@@ -11,6 +11,5 @@ st.subheader("Learn more")
 st.write("""
     Check out my github to see the specific jupiter notebook file on how I trained the model.
 """)
-if st.button("Open My Github"):
-    webbrowser.open_new_tab("https://github.com/PritamPattnaik360")
+st.markdown("[My Git Repo](https://github.com/PritamPattnaik360/HousePriceMLM)")
 
