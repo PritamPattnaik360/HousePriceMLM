@@ -53,8 +53,14 @@ def plot_feature_importance(model, feature_columns, model_type):
 
 if st.button("Predict"):
     try:
+        # Add missing attribute if necessary
+        if not hasattr(model, "monotonic_cst"):
+            model.monotonic_cst = None
+
+        # Perform prediction
         prediction = model.predict(input_df)
         st.subheader(f"Estimated House Price: ${prediction[0]:,.2f}")
         plot_feature_importance(model, feature_columns, selected_model_name)
     except Exception as e:
         st.error(f"Error during prediction: {e}")
+
