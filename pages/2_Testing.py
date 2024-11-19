@@ -49,10 +49,6 @@ def plot_feature_importance(model, feature_columns, model_type):
         importance = model.feature_importances_
         feature_importance = pd.Series(importance, index=feature_columns).sort_values(ascending=False)
         st.write("The Graph displayed shows the weighting of imprtance each specific trait has on the overall number")
-    elif model_type == "Decision Tree":
-        importance = model.feature_importances_
-        feature_importance = pd.Series(importance, index=feature_columns).sort_values(ascending=False)
-        st.write("The Graph displayed shows the weighting of imprtance each specific trait has on the overall number")
     else:
         st.write("Feature importance graph not supported for this model type.")
         return None
